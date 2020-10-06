@@ -1,0 +1,12 @@
+.container {
+  width: 100%;
+  text-align: center;
+}
+.container p {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+.container .iterated-arr {
+  margin-top: 5%;
+}
