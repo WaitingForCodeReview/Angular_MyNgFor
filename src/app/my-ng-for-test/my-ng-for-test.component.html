@@ -2,8 +2,8 @@
 
   <div class="iterated-obj">
     <p>This is iterated Object</p>
-    <ng-container *appNgForObject="let propertyName from myObject; let index=propertyName">
-      <p>[{{ index }}] {{ propertyName }}: {{ myObject[propertyName] }}</p>
+    <ng-container *appNgForObject="let item from myObject; let index=propertyName">
+      <p>[{{ index }}]: {{ item }}</p>
     </ng-container>
   </div>
 

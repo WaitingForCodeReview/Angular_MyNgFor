@@ -4,7 +4,7 @@ import {Directive, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRe
   selector: '[appNgForObject]'
 })
 export class NgForObjectDirective implements OnChanges {
-  @Input() appNgForObjectFrom: { [key: string]: any } | Array<number>;
+  @Input() appNgForObjectFrom: { [key: string]: any } | number[];
 
   constructor(
     private template: TemplateRef<any>,
@@ -18,9 +18,9 @@ export class NgForObjectDirective implements OnChanges {
       if (!Array.isArray(this.appNgForObjectFrom)) {
         const propertyNames = Object.keys(changes.appNgForObjectFrom.currentValue);
 
-        propertyNames.forEach((propertyName: string, index: number) => {
+        propertyNames.forEach((propertyName: string) => {
           this.viewContainer.createEmbeddedView(this.template, {
-            $implicit: propertyName,
+            $implicit: this.appNgForObjectFrom[propertyName],
             propertyName
           });
         });
